@@ -56,11 +56,3 @@ export interface TelegramWebApp {
   openInvoice: (url: string, callback?: (status: 'paid' | 'cancelled' | 'failed' | 'pending') => void) => void;
   openTelegramLink: (url: string) => void;
 }
-
-declare global {
-  interface Window {
-    Telegram?: {
-      WebApp: TelegramWebApp;
-    };
-  }
-}

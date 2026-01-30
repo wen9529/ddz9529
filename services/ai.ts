@@ -10,8 +10,8 @@ export const getBotMove = async (
   botHand: Card[],
   lastPlayedHand: PlayedHand | null,
   botRole: PlayerRole,
-  landlordRole: PlayerRole | null,
-  tableCards: Card[] // All visible cards or history could be passed, simplifing to just last hand for now
+  _landlordRole: PlayerRole | null,
+  _tableCards: Card[] // All visible cards or history could be passed, simplifing to just last hand for now
 ): Promise<Card[]> => {
   
   // Construct a prompt context

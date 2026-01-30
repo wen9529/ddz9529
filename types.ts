@@ -41,7 +41,8 @@ export interface PlayedHand {
   cards: Card[];
 }
 
-// Minimal Telegram WebApp Types
+// Minimal Telegram WebApp Types kept for reference if needed by other files, 
+// but global augmentation is now in vite-env.d.ts
 export interface TelegramWebApp {
   initData: string;
   initDataUnsafe: any;

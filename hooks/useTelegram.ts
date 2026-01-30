@@ -55,7 +55,7 @@ export const useTelegram = () => {
 
         if (!invoiceLink) throw new Error("未获取到支付链接");
 
-        window.Telegram?.WebApp.openInvoice(invoiceLink, (status) => {
+        window.Telegram?.WebApp.openInvoice(invoiceLink, (status: string) => {
             if (status === 'paid') {
                 fetch('/api/payment-success', {
                     method: 'POST',

@@ -12,7 +12,8 @@ export const useGame = (
     userName: string
 ) => {
   const [phase, setPhase] = useState<GamePhase>(GamePhase.Lobby);
-  const [deck, setDeck] = useState<Card[]>([]);
+  // deck is created in startGame but we don't need to read the state variable, so we skip destructuring it
+  const [, setDeck] = useState<Card[]>([]);
   const [players, setPlayers] = useState<Player[]>([
     { id: 0, name: userName, isHuman: true, hand: [], role: null, lastAction: null },
     { id: 1, name: '电脑 (右)', isHuman: false, hand: [], role: null, lastAction: null },
@@ -51,7 +52,7 @@ export const useGame = (
           title: '积分不足',
           message: `开始游戏需要 ${GAME_COST} 积分。请充值。`,
           buttons: [{ id: 'shop', type: 'default', text: '去充值' }]
-        }, (id) => {
+        }, (id: string) => {
           if (id === 'shop') setShowShop(true);
         });
       } else {

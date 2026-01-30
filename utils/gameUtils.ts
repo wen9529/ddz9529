@@ -1,4 +1,4 @@
-import { Card, Suit, Player } from '../types';
+import { Card, Suit } from '../types';
 import { RANKS, VALUES } from '../constants';
 
 export const createDeck = (): Card[] => {

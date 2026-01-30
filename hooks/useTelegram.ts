@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { SHOP_ITEMS } from '../constants';
 
 export const useTelegram = () => {
-  const [credits, setCredits] = useState<number>(0);
+  const [credits, setCredits] = useState<number>(2000);
   const [isTg, setIsTg] = useState(false);
   const [isLoadingUser, setIsLoadingUser] = useState(true);
   const [isBuying, setIsBuying] = useState<string | null>(null);
@@ -121,11 +121,9 @@ export const useTelegram = () => {
         fetchUser();
       } else {
         setIsLoadingUser(false);
-        setCredits(200); // Fallback for local testing
       }
     } else {
         setIsLoadingUser(false);
-        setCredits(200); // Dev mode
     }
   }, []);
 

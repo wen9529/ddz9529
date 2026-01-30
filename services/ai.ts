@@ -2,7 +2,10 @@ import { GoogleGenAI, Type } from "@google/genai";
 import { Card, PlayedHand, PlayerRole } from "../types";
 import { formatHandForAI } from "../utils/gameUtils";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+// Provide a fallback empty string if API_KEY is missing during build/runtime
+// This prevents the app from crashing on startup, allowing the UI to render.
+const apiKey = process.env.API_KEY || ""; 
+const ai = new GoogleGenAI({ apiKey });
 
 const MODEL_NAME = "gemini-3-flash-preview";
 
@@ -14,6 +17,11 @@ export const getBotMove = async (
   _tableCards: Card[] // All visible cards or history could be passed, simplifing to just last hand for now
 ): Promise<Card[]> => {
   
+  if (!apiKey) {
+      console.warn("API Key is missing. Bot cannot move.");
+      return [];
+  }
+
   // Construct a prompt context
   const handStr = formatHandForAI(botHand);
   const lastMoveStr = lastPlayedHand 
@@ -107,6 +115,10 @@ export const getHint = async (
   lastPlayedHand: PlayedHand | null
 ): Promise<{ cards: Card[], reasoning: string }> => {
   
+  if (!apiKey) {
+      return { cards: [], reasoning: "API Key 未配置，无法获取建议。" };
+  }
+
   const handStr = formatHandForAI(humanHand);
   const lastMoveStr = lastPlayedHand 
     ? `对手出牌: ${formatHandForAI(lastPlayedHand.cards)}` 

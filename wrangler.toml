@@ -1,11 +1,6 @@
-name = "gemini-dou-dizhu"
-pages_build_output_dir = "dist"
-compatibility_date = "2024-02-08"
-
-# D1 Database Binding
-# For Pages Dashboard deployment, configure the binding 'DB' in the dashboard settings.
-
-[[d1_databases]]
-binding = "DB"
-database_name = "gemini-dou-dizhu-db"
-database_id = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+# Configuration removed for security.
+# Please configure the following in the Cloudflare Pages Dashboard:
+# 1. Build output directory: dist
+# 2. Compatibility date: 2024-02-08 (or later)
+# 3. Bindings: D1 Database (Variable name: DB)
+# 4. Environment Variables: API_KEY, BOT_TOKEN

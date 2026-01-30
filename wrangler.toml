@@ -1,0 +1,11 @@
+name = "gemini-dou-dizhu"
+pages_build_output_dir = "dist"
+compatibility_date = "2024-02-08"
+
+# D1 Database Binding
+# For Pages Dashboard deployment, configure the binding 'DB' in the dashboard settings.
+
+[[d1_databases]]
+binding = "DB"
+database_name = "gemini-dou-dizhu-db"
+database_id = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
